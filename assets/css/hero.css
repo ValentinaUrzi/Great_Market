@@ -1,0 +1,11 @@
+.hero_container {
+    width: 80%;
+    height: 500px;
+    position: absolute;
+    z-index: -1;
+    top: -150px;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    background-image: url("../img/bg.jpg");
+    background-size: cover;
+}

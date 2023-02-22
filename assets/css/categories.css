@@ -1,0 +1,33 @@
+.categories {
+    display: flex;
+    justify-content: left;
+    flex-direction: center;
+    align-items: center;
+    box-sizing: border-box;
+    height: 40px;
+    width: 100%;
+    background-color: #232F3E;
+    padding-left: 25px;
+    gap: 15px;
+}
+
+.category {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    cursor: pointer;
+    padding: 8px 5px 7.5px 5px;
+    text-transform: capitalize;
+}
+
+.category:hover {
+    border: 1px solid white;
+}
+
+.cat_name {
+    margin: 0;
+}

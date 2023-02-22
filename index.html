@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Market - Tech & Style </title>
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+    <link rel="stylesheet" href="./assets/css/header.css">
+    <link rel="stylesheet" href="./assets/css/categories.css">
+    <link rel="stylesheet" href="./assets/css/hero.css">
+    <link rel="stylesheet" href="./assets/css/cards.css">
+    <link rel="stylesheet" href="./assets/css/loader.css">
+    <link rel="stylesheet" href="./assets/css/modal.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="left_header_container">
+                <div class="logo_container">
+                    <a href="/index.html"><img class="logo" src="./assets/img/logo/logoW.png" alt="logo"></a>
+                </div>
+                <a href="/" class="localizer_container">
+                    <img class="pin" src="./assets/img/icons/pin.png" alt="map_pin">
+                    <div class="address">
+                        <span class="user">Invia a User</span>
+                        <span class="geolocal">User Città CAP</span>
+                    </div>
+                </a>
+            </div>
+            <form class="search_bar">
+                <input class="search" type="text" placeholder="Ricerca un prodotto">
+            </form>
+            <button id="login_btn" class="login">Accedi</button>
+            <a href="/" class="cart_container">
+                <img class="cart" src="./assets/img/icons/cart.png" alt="cart">
+                <h2 class="quantity">0</h2>
+                <h3 class="cart_text">Carrello</h3>
+            </a>
+            <button id="lang_btn" class="lang_flag"></button>
+        </header>
+        <main>
+            <div class="loader">
+                <div class="loader-inner"></div>
+            </div>
+            <section class="categ">
+                <div class="categories">
+                </div>
+            </section>
+            <section class="hero">
+                <div class="hero_container"></div>
+            </section>
+            <section class="cards">
+                <div class="card_container">
+                </div>
+            </section>
+            <div id="modal" class="modal">
+                <div class="modal_content">
+                    <h2 class="modal_title">Accedi</h2>
+                    <form id="login_form">
+                        <label class="username" for="username">Nome utente:</label>
+                        <br>
+                        <input type="text" id="username" name="username"><br><br>
+                        <label class="password" for="password">Password:</label>
+                        <br>
+                        <input type="password" id="password" name="password"><br><br>
+                        <p id="error_msg" class="error_msg"></p>
+                        <input class="sub_btn" type="submit" value="Invia">
+                    </form>
+                </div>
+            </div>
+        </main>
+        <script src="./scripts/index.js" type="module"></script>
+</body>
+
+</html>

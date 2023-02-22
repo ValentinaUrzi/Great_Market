@@ -1,0 +1,21 @@
+.card_container {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: auto;
+    margin-top: 300px;
+}
+
+.card {
+    width: 18%;
+    height: 300px;
+    border: 1px solid red;
+    background-color: white;
+    padding: 30px;
+}
+
+.card_title {
+    border: 1px solid red;
+}
