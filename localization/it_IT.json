@@ -9,5 +9,6 @@
     "sub_btn": "Invia",
     "terms": "Termini e Condizioni",
     "privacy": "Politica sulla Privacy",
-    "ads": "Pubblicità basate sugli interessi"
+    "ads": "Pubblicità basate sugli interessi",
+    "empty_cart_mess" : "Non ci sono prodotti nel carrello"
 }

@@ -4,8 +4,10 @@ const card = () => {
 
     const cardContainerEl = qS(".card_container");
     const loader = qS('.loader');
+    const modal = qS("#modal");
+    const loginControl = localStorage.getItem("isLogged");
 
-// GENERATORE DI CARDS GENERICHE
+    // GENERATORE DI CARDS GENERICHE
 
     const cardGen = async () => {
         loader.style.display = 'block';
@@ -15,13 +17,23 @@ const card = () => {
 
             const cardEl = cE(`div`)
             cardEl.className = "card";
+            cardEl.onclick = () => {
+                if (loginControl !== "true") {
+                    modal.style.display = "flex";
+                    modal.openedBy = "login";
+
+                    const cart = JSON.parse(localStorage.getItem("cart")) || []
+                    localStorage.setItem("cart")
+                }
+            }
+
 
             const cardOverlay = cE(`div`)
             cardOverlay.className = "card_overlay";
 
             const cartMessageContainer = cE(`div`)
             cartMessageContainer.className = "cart_mess_cont";
-            
+
             const cartMessageIcon = cE(`img`)
             cartMessageIcon.className = "shopping_cart";
             cartMessageIcon.src = "../assets/img/icons/cart.png"
@@ -60,8 +72,8 @@ const card = () => {
             priceBrandContainer.append(brand, price);
             cartMessageContainer.append(cartMessageIcon, cartMessage);
             cardOverlay.appendChild(cartMessageContainer);
-            cardEl.append(cardOverlay, title, cat, priceBrandContainer, img,);
-            cardContainerEl.appendChild(cardEl);
+            cardEl.append(cardOverlay, title, cat, priceBrandContainer, img);
+            if (cardContainerEl) cardContainerEl.appendChild(cardEl);
         })
     }
     cardGen();

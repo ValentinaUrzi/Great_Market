@@ -24,7 +24,7 @@
                 <div class="logo_container">
                     <a href="/index.html"><img class="logo" src="./assets/img/logo/logoW.png" alt="logo"></a>
                 </div>
-                <a href="/" class="localizer_container">
+                <a class="localizer_container">
                     <img class="pin" src="./assets/img/icons/pin.png" alt="map_pin">
                     <div class="address">
                         <span class="user">Invia a User</span>
@@ -35,13 +35,17 @@
             <form class="search_bar">
                 <input class="search" type="text" placeholder="Ricerca un prodotto">
             </form>
-            <button id="login_btn" class="login">Accedi</button>
-            <a href="/" class="cart_container">
-                <img class="cart" src="./assets/img/icons/cart.png" alt="cart">
-                <h2 class="quantity">0</h2>
-                <h3 class="cart_text">Carrello</h3>
-            </a>
-            <button id="lang_btn" class="lang_flag"></button>
+            <div class="right_header">
+                <button id="login_btn" class="login">Accedi</button>
+                <a class="cart_container">
+                    <div class="cart_wrapper">
+                        <img class="cart" src="./assets/img/icons/cart.png" alt="cart">
+                        <h2 class="quantity">0</h2>
+                    </div>
+                    <h3 class="cart_text">Carrello</h3>
+                </a>
+                <button id="lang_btn" class="lang_flag"></button>
+            </div>
         </header>
         <!-- MAIN -->
         <main>
@@ -102,6 +106,7 @@
                 </ul>
             </div>
         </footer>
+        <!-- SCRIPT -->
         <script src="./scripts/index.js" type="module"></script>
 </body>
 

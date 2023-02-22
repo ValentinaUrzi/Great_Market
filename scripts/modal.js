@@ -5,35 +5,56 @@ const modalGen = () => {
     const modal = qS("#modal");
     const btn = qS("#login_btn");
     const form = qS("#login_form");
-    const error = qS("#error_msg")
-    const loader = qS('.loader');
+    const error = qS("#error_msg");
+    const rightHeader = qS(".right_header");
+    const username = localStorage.getItem("username");
+    const loggedStatus = localStorage.getItem("isLogged");
 
-    btn.onclick = function () {
+    const logoutBtn = cE("button");
+    logoutBtn.className = "logout_btn";
+    logoutBtn.title = "Logout";
+
+    btn.onclick = () => {
         modal.style.display = "flex";
+        modal.openedBy = "login";
     }
 
-    window.onclick = function (event) {
+    logoutBtn.onclick = () => {
+        localStorage.removeItem("isLogged");
+        localStorage.removeItem("username");
+        location.replace("index.html");
+    }
+
+    window.onclick = (event) => {
         if (event.target == modal) {
             modal.style.display = "none";
         }
     }
 
-    form.onsubmit = function (event) {
-        event.preventDefault();
-        error.textContent = "";
+    if (loggedStatus === "true") {
+        rightHeader.prepend(logoutBtn)
+        btn.textContent = username[0]
+        btn.className = "avatar"
+    }
+    if (form) {
 
-        if (event.target.username.value == "" || event.target.password.value == "") {
-            error.textContent = "Username o password mancanti";
-            return;
+        form.onsubmit = (event) => {
+            event.preventDefault();
+            error.textContent = "";
+
+            if (event.target.username.value == "" || event.target.password.value == "") {
+                error.textContent = "Username o password mancanti";
+                return;
+            }
+
+            setTimeout(() => {
+                modal.style.display = "none"
+                localStorage.setItem("isLogged", true);
+                localStorage.setItem("username", event.target.username.value);
+                if (modal.openedBy === "cart") location.assign("cart.html")
+                else { location.reload() }
+            }, 800)
         }
-
-        loader.style.display = 'block';
-
-        setTimeout(() => {
-            modal.style.display = "none"
-            loader.style.display = 'none';
-            localStorage.setItem("isLogged", true);
-        }, 800)
     }
 }
 export default modalGen

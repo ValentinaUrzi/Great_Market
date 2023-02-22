@@ -9,5 +9,6 @@
     "sub_btn": "Send",
     "terms": "Terms and Conditions",
     "privacy": "Privacy Policy",
-    "ads": "Interest-Based Ads"
+    "ads": "Interest-Based Ads",
+    "empty_cart_mess": "Your cart is empty"
 }

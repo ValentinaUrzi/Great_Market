@@ -10,6 +10,7 @@ header {
     height: 60px;
     width: 100%;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     background-color: #131921;
 }
@@ -87,7 +88,7 @@ header {
 }
 
 .search_bar {
-    width: 69%;
+    width: 65%;
     margin-right: 40px;
 }
 
@@ -107,9 +108,16 @@ header {
     border-radius: 8px;
 }
 
+.right_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-right: 20px;
+}
+
 .login {
     height: 49px;
-    width: 4%;
     font-weight: bold;
     text-align: center;
     color: white;
@@ -126,17 +134,40 @@ header {
     border-color: white;
 }
 
+.logout_btn {
+    border-radius: 100%;
+    width: 35px;
+    height: 35px;
+    outline: none;
+    background-image: url("../img/icons/logout.png");
+    background-size: cover;
+    background-color: #232F3E;
+    cursor: pointer;
+}
+
+.avatar {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    outline: none;
+    background-color: #E28804;
+    border: 2px solid white;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
 .cart_container {
-    width: 3.5%;
     position: relative;
     display: flex;
     text-decoration: none;
-    padding: 1px 30px 1px 10px;
+    padding: 1px 10px 1px 10px;
     border: 1px solid;
     border-radius: 2px;
     border-color: transparent;
     cursor: pointer;
-    margin: 0 px 0 0;
 }
 
 .cart_container:hover {
@@ -172,5 +203,4 @@ header {
     outline: none;
     background-size: cover;
     cursor: pointer;
-    margin-left: 30px;
 }

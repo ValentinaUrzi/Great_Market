@@ -8,6 +8,7 @@ const lang = localStorage.getItem('language');
 
 const localString = (nome, attributo) => {
     const classSelector = qS('.' + nome);
+    if (!classSelector) return;
     if (attributo) classSelector[attributo] = lang === "en_EN" ? en_EN[nome] : it_IT[nome];
     else { classSelector.textContent = lang === "en_EN" ? en_EN[nome] : it_IT[nome]; }
 }
