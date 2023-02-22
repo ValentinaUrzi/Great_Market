@@ -22,6 +22,8 @@ const modalGen = () => {
     logoutBtn.onclick = () => {
         localStorage.removeItem("isLogged");
         localStorage.removeItem("username");
+        localStorage.removeItem('cart_quantity');
+        localStorage.removeItem('cart');
         location.replace("index.html");
     }
 

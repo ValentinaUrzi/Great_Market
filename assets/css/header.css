@@ -184,10 +184,10 @@ header {
 
 .quantity {
     position: absolute;
-    top: -3px;
-    left: 31px;
+    top: 0px;
+    left: 28.5px;
     color: #e28804;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: bold;
 }
 

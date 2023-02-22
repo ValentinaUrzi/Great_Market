@@ -5,6 +5,8 @@ const card = () => {
     const cardContainerEl = qS(".card_container");
     const loader = qS('.loader');
     const modal = qS("#modal");
+    const cartQuant = qS(".quantity");
+
     const loginControl = localStorage.getItem("isLogged");
 
     // GENERATORE DI CARDS GENERICHE
@@ -15,15 +17,45 @@ const card = () => {
         const data = await res.json();
         data.products.forEach((products) => {
 
-            const cardEl = cE(`div`)
+            const cardEl = cE(`button`)
             cardEl.className = "card";
+            
+            // AGGIUNGERE ARTICOLO AL CARRELLO 
             cardEl.onclick = () => {
+                let itemCart = {
+                    id: products.id,
+                    title: products.title,
+                    brand: products.brand,
+                    image: products.images[0],
+                    price: products.price,
+                    qnty: 1
+                }
+
+                const cartQuantStorage = localStorage.getItem("cart_quantity") || "0";
+                let cart = JSON.parse(localStorage.getItem("cart")) || []
+
+                localStorage.setItem("cart_quantity", parseInt(cartQuantStorage) + 1)
+
+                // AGGIUNGO O INCREMENTO QUANTITA' ARTICOLI CONTROLLANDO ID DUPLICATI
+                let cartControl = cart.find(element => element.id === products.id);
+                if (cartControl) {
+                    cart = cart.map(element => {
+                        if (element.id === products.id) {
+                            element.qnty = element.qnty + 1;
+                        }
+                        return element
+                    })
+                }
+                else {
+                    cart.push(itemCart);
+                }
+                localStorage.setItem("cart", JSON.stringify(cart))
                 if (loginControl !== "true") {
                     modal.style.display = "flex";
                     modal.openedBy = "login";
 
-                    const cart = JSON.parse(localStorage.getItem("cart")) || []
-                    localStorage.setItem("cart")
+                } else {
+                    cartQuant.textContent = parseInt(cartQuantStorage) + 1
                 }
             }
 
@@ -58,9 +90,16 @@ const card = () => {
             brand.className = "card_brand";
             brand.textContent = products.brand;
 
+            const priceContainer = cE(`div`)
+            priceContainer.className = "card_price_container";
+
             const price = cE(`p`)
             price.className = "card_price";
             price.textContent = "€ " + products.price;
+
+            const priceDiscounted = cE(`p`)
+            priceDiscounted.className = "card_price_discount";
+            priceDiscounted.textContent = "- " + products.discountPercentage + "%";
 
             const img = cE(`img`)
             img.className = "card_img";
@@ -68,8 +107,8 @@ const card = () => {
 
 
             loader.style.display = 'none';
-
-            priceBrandContainer.append(brand, price);
+            priceContainer.append(price, priceDiscounted)
+            priceBrandContainer.append(brand, priceContainer);
             cartMessageContainer.append(cartMessageIcon, cartMessage);
             cardOverlay.appendChild(cartMessageContainer);
             cardEl.append(cardOverlay, title, cat, priceBrandContainer, img);

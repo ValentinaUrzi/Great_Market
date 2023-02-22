@@ -12,6 +12,8 @@
     display: flex;
     position: relative;
     flex-direction: column;
+    border: transparent;
+    outline: none;
     justify-content: center;
     align-items: center;
     width: 20%;
@@ -65,6 +67,17 @@
     width: 100%;
     display: flex;
     justify-content: space-evenly;
+}
+
+.card_price_container {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+}
+
+.card_price_discount {
+    color: red;
+    font-size: 10px;
 }
 
 .card_img {
