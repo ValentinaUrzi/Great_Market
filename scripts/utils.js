@@ -12,10 +12,13 @@ const localString = (nome, attributo) => {
     else { classSelector.textContent = lang === "en_EN" ? en_EN[nome] : it_IT[nome]; }
 }
 
+// TRADUTTORE CATEGORIE
+
 const catTranslator = (nome) => {
     if (lang === "en_EN") return nome
     switch (nome) {
-        case "laptops": return "Portatili";
+        case "all": return "Tutte"
+        case "laptops": return "Notebooks";
         case "fragrances": return "Profumi";
         case "groceries": return "Alimentari";
         case "furniture": return "Mobili";

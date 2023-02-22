@@ -13,10 +13,12 @@
     <link rel="stylesheet" href="./assets/css/cards.css">
     <link rel="stylesheet" href="./assets/css/loader.css">
     <link rel="stylesheet" href="./assets/css/modal.css">
+    <link rel="stylesheet" href="./assets/css/footer.css">
 </head>
 
 <body>
     <div class="container">
+        <!-- HEADER -->
         <header>
             <div class="left_header_container">
                 <div class="logo_container">
@@ -41,24 +43,30 @@
             </a>
             <button id="lang_btn" class="lang_flag"></button>
         </header>
+        <!-- MAIN -->
         <main>
+            <!-- LOADER -->
             <div class="loader">
                 <div class="loader-inner"></div>
             </div>
+            <!-- CATEGORIE -->
             <section class="categ">
-                <div class="categories">
-                </div>
+                <div class="categories"></div>
             </section>
+            <!-- HERO -->
             <section class="hero">
                 <div class="hero_container"></div>
             </section>
+            <!-- CARDS -->
             <section class="cards">
                 <div class="card_container">
                 </div>
             </section>
+            <!-- MODALE -->
             <div id="modal" class="modal">
                 <div class="modal_content">
                     <h2 class="modal_title">Accedi</h2>
+                    <!-- LOGIN -->
                     <form id="login_form">
                         <label class="username" for="username">Nome utente:</label>
                         <br>
@@ -72,6 +80,28 @@
                 </div>
             </div>
         </main>
+        <!-- FOOTER -->
+        <footer>
+            <div class="footer_top">
+                <ul class="text_list">
+                    <li><a href="#"><img class="logo" src="./assets/img/logo/logoW.png" alt="logo"></a>
+                    </li>
+                    <div class="footer_wrapper">
+                        <li><a id="lang_changer_en" href="#" class="select">English</a></li>
+                        <li><a id="lang_changer_it" href="#" class="select">Italiano</a></li>
+                    </div>
+                </ul>
+            </div>
+
+            <div class="footer_bottom">
+                <ul class="text_list">
+                    <li><a class="terms" href="#">Conditions of Use</a></li>
+                    <li><a class="privacy" href="#">Privacy Notice</a></li>
+                    <li><a class="ads" href="#">Interest-Based Ads</a></li>
+                    <li>&copy; 1996-2023, Great Market.com, Inc. or its affiliates</li>
+                </ul>
+            </div>
+        </footer>
         <script src="./scripts/index.js" type="module"></script>
 </body>
 

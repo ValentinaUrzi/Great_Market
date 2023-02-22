@@ -13,21 +13,18 @@
 
 .category {
     color: white;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: bold;
     text-decoration: none;
     border-radius: 2px;
     border: 1px solid transparent;
+    background-color: transparent;
     box-sizing: border-box;
     cursor: pointer;
-    padding: 8px 5px 7.5px 5px;
+    padding: 10px 5px 7.5px 5px;
     text-transform: capitalize;
 }
 
 .category:hover {
     border: 1px solid white;
-}
-
-.cat_name {
-    margin: 0;
 }

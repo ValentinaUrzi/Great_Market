@@ -6,5 +6,8 @@
     "geolocal": "Rome 00100",
     "modal_title": "Login",
     "username": "Username",
-    "sub_btn": "Send"
+    "sub_btn": "Send",
+    "terms": "Terms and Conditions",
+    "privacy": "Privacy Policy",
+    "ads": "Interest-Based Ads"
 }

@@ -32,6 +32,7 @@ const modalGen = () => {
         setTimeout(() => {
             modal.style.display = "none"
             loader.style.display = 'none';
+            localStorage.setItem("isLogged", true);
         }, 800)
     }
 }
