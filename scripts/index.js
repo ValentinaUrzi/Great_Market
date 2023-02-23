@@ -1,6 +1,6 @@
 import lang from "./language.js";
 import categories from "./categories.js";
-import card from "./card.js";
+import cards from "./cards.js";
 import modalGen from "./modal.js";
 import cart from "./cart.js";
 import traslator from "./translator.js";
@@ -16,6 +16,6 @@ if (url === '/checkout.html') {
 traslator()
 if (url === "/") {
     categories()
-    card()
+    cards()
 }
 modalGen()

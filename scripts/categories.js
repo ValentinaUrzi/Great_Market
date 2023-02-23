@@ -1,9 +1,13 @@
-import card from "./card.js"
 import { catTranslator, cE, qS } from "./utils.js"
 
 const cardContainerEl = qS(".card_container");
 const loader = qS('.loader');
 const catContainerEl = qS(".categories")
+
+const heroOverTitle = qS(".hero_overlay_title");
+const heroImg = qS(".hero_container");
+
+const lang = localStorage.getItem("language")
 
 // POPOLAMENTO BARRA CATEGORIE (BYPASSANDO LA CAT 1)
 
@@ -31,6 +35,11 @@ const categories = () => {
                         loader.style.display = 'none';
                         cardCat.products.forEach((products) => {
 
+                            heroImg.style.backgroundImage = `url("../assets/img/hero/${data}.jpg")`
+
+                            if (data === "all") heroOverTitle.textContent = ""
+                            else { heroOverTitle.textContent = catTranslator(data) }
+
                             const cardEl = cE(`div`)
                             cardEl.className = "card";
 
@@ -46,39 +55,50 @@ const categories = () => {
 
                             const cartMessage = cE(`p`)
                             cartMessage.className = "cart_mess";
-                            cartMessage.textContent = "Aggiungi al carrello";
+                            cartMessage.textContent = lang === "it_IT" ? "Aggiungi al carrello" : "Add to Cart";
 
                             const title = cE(`h2`)
                             title.className = "card_title";
-                            title.textContent = products.title;
+                            title.textContent = products.title.slice(0, 27);
 
                             const cat = cE(`h3`)
                             cat.className = "card_cat";
                             cat.textContent = products.category;
 
+                            const cardCatBrand = cE(`div`)
+                            cardCatBrand.className = "card_cat_brand";
 
                             const priceBrandContainer = cE(`div`)
                             priceBrandContainer.className = "card_price_brand";
 
                             const brand = cE(`p`)
                             brand.className = "card_brand";
-                            brand.textContent = products.brand;
+                            brand.textContent = products.brand.slice(0, 15);
+
+                            const priceContainer = cE(`div`)
+                            priceContainer.className = "card_price_container";
 
                             const price = cE(`p`)
                             price.className = "card_price";
                             price.textContent = "€ " + products.price;
 
+                            const priceDiscounted = cE(`p`)
+                            priceDiscounted.className = "card_price_discount";
+                            priceDiscounted.textContent = "- " + products.discountPercentage + "%";
+
                             const img = cE(`img`)
                             img.className = "card_img";
                             img.src = products.images[1] ? products.images[1] : products.images[0];
 
-                            loader.style.display = 'none';
 
-                            if (priceBrandContainer) priceBrandContainer.append(brand, price);
+                            loader.style.display = 'none';
+                            priceContainer.append(price, priceDiscounted)
+                            priceBrandContainer.appendChild(priceContainer);
                             cartMessageContainer.append(cartMessageIcon, cartMessage);
                             cardOverlay.appendChild(cartMessageContainer);
-                            cardEl.append(cardOverlay, title, cat, priceBrandContainer, img,);
-                            cardContainerEl.appendChild(cardEl);
+                            cardEl.append(cardOverlay, img, title, cardCatBrand, priceBrandContainer);
+                            cardCatBrand.append(brand, cat);
+                            if (cardContainerEl) cardContainerEl.appendChild(cardEl);
                         })
 
                     }

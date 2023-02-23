@@ -37,31 +37,43 @@ const cart = () => {
             const defaultCartContainer = cE("div")
             defaultCartContainer.className = "not_empty_cart";
 
+            const imgTitleWrapper = cE("div")
+            imgTitleWrapper.className = "img_title_wrapper";
+
             const img = cE(`img`)
             img.className = "cart_card_image";
             img.src = products.image
 
+            const titleBrandWrapper = cE("div")
+            titleBrandWrapper.className = "title_brand_wrapper";
+
             const title = cE(`h2`)
-            title.className = "card_title";
+            title.className = "cart_title";
             title.textContent = products.title;
 
-            const priceBrandContainer = cE(`div`)
-            priceBrandContainer.className = "card_price_brand";
+            const brandCatContainer = cE("div")
+            brandCatContainer.className = "brand_cat_container";
 
             const brand = cE(`p`)
-            brand.className = "card_brand";
-            brand.textContent = products.brand;
+            brand.className = "cart_brand";
+            brand.textContent = `${products.brand} -`;
+
+            const category = cE(`p`)
+            category.className = "cart_category";
+            category.textContent = products.category;
+
+            const priceQuantContainer = cE(`div`)
+            priceQuantContainer.className = "cart_price_brand";
 
             const priceContainer = cE(`div`)
-            priceContainer.className = "card_price_container";
+            priceContainer.className = "cart_price_container";
 
             const price = cE(`p`)
-            price.className = "card_price";
+            price.className = "cart_price";
             price.textContent = "€ " + products.price;
 
             const qntyContainer = cE(`p`)
-            qntyContainer.className = "card_qnty_container";
-
+            qntyContainer.className = "cart_qnty_container";
 
             const minusBtn = cE(`button`)
             minusBtn.className = "minus_btn";
@@ -155,8 +167,11 @@ const cart = () => {
 
             priceContainer.append(price)
             qntyContainer.append(minusBtn, qnty, plusBtn)
-            priceBrandContainer.append(brand, priceContainer);
-            defaultCartContainer.append(img, title, priceBrandContainer, qntyContainer);
+            priceQuantContainer.append(priceContainer, qntyContainer);
+            imgTitleWrapper.append(img, titleBrandWrapper)
+            brandCatContainer.append(brand, category)
+            titleBrandWrapper.append(title, brandCatContainer)
+            defaultCartContainer.append(imgTitleWrapper, priceQuantContainer);
             if (cartContainer) cartContainer.append(defaultCartContainer);
         })
     }

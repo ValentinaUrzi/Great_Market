@@ -27,7 +27,10 @@ const checkout = () => {
     };
 
     closeModalBtn.onclick = () => {
-        successModal.style.display = "none";
+        successModal.style.display = "none"
+        localStorage.removeItem("cart_quantity");
+        localStorage.removeItem("cart");
+        location.replace("/");
     };
 
     window.onclick = (event) => {

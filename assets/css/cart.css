@@ -1,53 +1,111 @@
 .cart_page {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
     min-height: 50vh;
+    gap: 20px;
 }
 
 .empty_cart {
-    width: 95%;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 2px;
+    height: 150px;
     background-color: white;
-    margin: 30px 0 30px 30px;
-    padding: 20px;
+    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 .not_empty_cart {
-    width: 95%;
+    width: 100%;
     background-color: white;
-    margin: 30px 0 30px 30px;
+    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.12);
+    border-radius: 2px;
     display: flex;
-    gap: 40px;
-    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .empty_cart_mess {
     font-size: 1.8rem;
+    width: 100%;
+    padding: 20px;
+}
+
+.img_title_wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px
 }
 
 .cart_card_image {
     height: 100px;
-    width: auto;
-    object-fit: cover;
+    width: 100px;
+    padding: 10px;
+    margin-left: 20px;
+    object-fit: contain;
+    border-radius: 2px;
 }
 
-.card_qnty_container {
+.cart_title {
+    margin: 0;
+}
+
+.cart_category {
+    text-transform: capitalize;
+}
+
+.title_brand_wrapper {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.title_brand_wrapper p {
+    margin: 0;
+}
+
+.brand_cat_container {
+    display: flex;
+    gap: 5px;
+    padding: 0px;
+}
+
+.cart_price {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.cart_qnty_container {
     display: flex;
     align-items: center;
     gap: 10px
 }
 
+.cart_price_brand {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+    gap: 20px;
+}
+
 .cart_total {
-    margin: 30px 0 30px 30px;
+    padding: 20px;
+    margin: 0 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 95%;
-    padding: 20px;
     background-color: white;
+    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.12);
+    border-radius: 2px;
 }
 
 .checkout_btn {
     padding: 10px 40px;
     background-color: #232F3E;
     color: white;
+    border-radius: 2px;
     border-radius: 2px;
     cursor: pointer;
 }

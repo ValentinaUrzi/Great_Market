@@ -6,6 +6,7 @@ const qS = (element) => document.querySelector(element);
 
 const lang = localStorage.getItem('language');
 
+// CREO UNA FUNZIONE DI TRADUZIONE GLOBALE
 const localString = (nome, attributo) => {
     const classSelector = qS('.' + nome);
     if (!classSelector) return;
