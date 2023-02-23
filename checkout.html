@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento Great Market</title>
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+    <link rel="stylesheet" href="./assets/css/header.css">
+    <link rel="stylesheet" href="./assets/css/footer.css">
+    <link rel="stylesheet" href="./assets/css/checkout.css">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="left_header_container">
+            <div class="logo_container">
+                <a href="/index.html"><img class="logo" src="./assets/img/logo/logoW.png" alt="logo"></a>
+            </div>
+            <a class="localizer_container">
+                <img class="pin" src="./assets/img/icons/pin.png" alt="map_pin">
+                <div class="address">
+                    <span class="user">Invia a User</span>
+                    <span class="geolocal">User Città CAP</span>
+                </div>
+            </a>
+        </div>
+        <form class="search_bar">
+            <input class="search" type="text" placeholder="Ricerca un prodotto">
+        </form>
+        <div class="right_header">
+            <button id="login_btn" class="login">Accedi</button>
+            <a class="cart_container">
+                <img class="cart" src="./assets/img/icons/cart.png" alt="cart">
+                <h2 class="quantity">0</h2>
+                <h3 class="cart_text">Carrello</h3>
+            </a>
+            <button id="lang_btn" class="lang_flag"></button>
+        </div>
+    </header>
+    <!-- LOADER -->
+    <div class="loader">
+        <div class="loader-inner"></div>
+    </div>
+    <!-- MAIN -->
+    <main>
+        <div class="checkout_wrapper">
+            <div class="checkout_container">
+                <h2 class="address_text"></h2>
+                <p class="user_address">Valentina, Via delle strade, 10 - 00100, Roma</p>
+                <h2 class="payment_method"></h2>
+                <div class="checkout_imgs">
+                    <form>
+                        <label>
+                            <input type="radio" name="payment-method" checked value="apple-pay">
+                            <img src="./assets/img/icons/a_pay.png" alt="Apple Pay">
+                        </label>
+                        <label>
+                            <input type="radio" name="payment-method" value="google-pay">
+                            <img src="./assets/img/icons/g_pay.png" alt="Google Pay">
+                        </label>
+                        <label>
+                            <input type="radio" name="payment-method" value="credit-card">
+                            <img src="./assets/img/icons/cc.png" alt="Carta di credito">
+                        </label>
+                        <label>
+                            <input type="radio" name="payment-method" value="paypal">
+                            <img src="./assets/img/icons/pp.png" alt="PayPal">
+                        </label>
+                    </form>
+                    <hr>
+                    <div class="total_wrapper">
+                        <h3 class="total"></h3>
+                        <button class="pay_btn"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer_top">
+            <ul class="text_list">
+                <li><a href="#"><img class="logo" src="./assets/img/logo/logoW.png" alt="logo"></a>
+                </li>
+                <div class="footer_wrapper">
+                    <li><a id="lang_changer_en" href="#" class="select">English</a></li>
+                    <li><a id="lang_changer_it" href="#" class="select">Italiano</a></li>
+                </div>
+            </ul>
+        </div>
+
+        <div class="footer_bottom">
+            <ul class="text_list">
+                <li><a class="terms" href="#">Conditions of Use</a></li>
+                <li><a class="privacy" href="#">Privacy Notice</a></li>
+                <li><a class="ads" href="#">Interest-Based Ads</a></li>
+                <li>&copy; 1996-2023, Great Market.com, Inc. or its affiliates</li>
+            </ul>
+        </div>
+    </footer>
+    <!-- SCRIPT -->
+    <script src="./scripts/index.js" type="module"></script>
+</body>
+
+</html>

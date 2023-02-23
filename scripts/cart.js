@@ -5,6 +5,7 @@ const cart = () => {
     const loginControl = localStorage.getItem("isLogged");
     const cartStorage = JSON.parse(localStorage.getItem("cart")) || [];
     const cartQuantStorage = localStorage.getItem("cart_quantity") || "0";
+    const lang = localStorage.getItem("language")
 
     const cartQuant = qS(".quantity");
     const cartBtn = qS(".cart_container");
@@ -18,11 +19,12 @@ const cart = () => {
     emptyCartMessage.className = "empty_cart_mess";
     emptyCartMessage.textContent = "Your cart is empty";
 
-    // SE NON SONO LOGGATO REDIRECT AD HOMEPAGE DAL CARRELLO
+    // SE NON SONO LOGGATO REDIRECT
     if (url.includes("cart")) loginControl !== "true" && location.replace("index.html")
 
-    // SE NON HA PRODOTTI MOSTRO MESSAGGIO CARRELLO VUOTO
+    // SE NON CI SOPNO PRODOTTI MOSTRO MESSAGGIO CARRELLO VUOTO
     if (parseInt(cartQuantStorage) === 0) {
+        if (checkoutBtn) checkoutBtn.style.display = "none";
         const defaultCartContainer = cE("div")
         defaultCartContainer.className = "empty_cart";
         defaultCartContainer.appendChild(emptyCartMessage);
@@ -60,7 +62,7 @@ const cart = () => {
             const qntyContainer = cE(`p`)
             qntyContainer.className = "card_qnty_container";
 
-            // DECREMENTO QUANTITA' E CARRELLO ID DUPLICATI
+
             const minusBtn = cE(`button`)
             minusBtn.className = "minus_btn";
             minusBtn.textContent = "-"
@@ -69,7 +71,7 @@ const cart = () => {
                 const cartQuantStorage = localStorage.getItem("cart_quantity") || "0";
                 const parsedQuant = parseInt(cartQuantStorage)
 
-                //DECREMENTO CARRELLO LOCAL STORAGE
+                //DECREMENTO QUANTITA' PRODOTTO LOCAL STORAGE (CART)
                 let cartControl = cartStorage.some(element => element.id === products.id && element.qnty > 1);
                 if (cartControl) {
                     cartStorage = cartStorage.map(element => {
@@ -88,10 +90,11 @@ const cart = () => {
                 } else {
                     defaultCartContainer.remove()
                 }
-                if (cartTotal) cartTotal.textContent = `Prezzo totale: ${cartStorage.reduce((total, value) => total + (value.price * value.qnty), 0)}€`
+                if (cartTotal) cartTotal.textContent = lang === "it_IT" ? `Prezzo totale : ${cartStorage.reduce((total, value) => total + (value.price * value.qnty), 0)}€`
+                    : `Total Price : ${cartStorage.reduce((total, value) => total + (value.price * value.qnty), 0)}€`
                 localStorage.setItem("cart", JSON.stringify(cartStorage))
 
-                //DECREMENTO QUANTITA' LOCAL STORAGE
+                //DECREMENTO QUANTITA' LOCAL STORAGE (CART_QUANTITY)
                 if (parsedQuant > 0) {
                     localStorage.setItem("cart_quantity", parsedQuant - 1)
                     cartQuant.textContent = parsedQuant - 1
@@ -116,7 +119,7 @@ const cart = () => {
                 const parsedQuant = parseInt(cartQuantStorage)
 
                 //INCREMENTO CARRELLO LOCAL STORAGE
-                let cartControl = cartStorage.some(element => element.id === products.id && element.qnty > 1);
+                let cartControl = cartStorage.some(element => element.id === products.id && element.qnty > 0);
                 if (cartControl) {
                     cartStorage = cartStorage.map(element => {
                         if (element.id === products.id) {
@@ -134,7 +137,8 @@ const cart = () => {
                 } else {
                     defaultCartContainer.remove()
                 }
-                if (cartTotal) cartTotal.textContent = `Prezzo totale: ${cartStorage.reduce((total, value) => total + (value.price * value.qnty), 0)}€`
+                if (cartTotal) cartTotal.textContent = lang === "it_IT" ? `Prezzo totale : ${cartStorage.reduce((total, value) => total + (value.price * value.qnty), 0)}€`
+                    : `Total Price : ${cartStorage.reduce((total, value) => total + (value.price * value.qnty), 0)}€`
 
                 localStorage.setItem("cart", JSON.stringify(cartStorage))
 
@@ -157,9 +161,6 @@ const cart = () => {
         })
     }
 
-    // INCREMENTO TOTALE CARRELLO
-    if (cartTotal) cartTotal.textContent = `Prezzo totale: ${cartStorage.reduce((total, value) => total + (value.price * value.qnty), 0)}€`
-
     // ACCESSO ALLA PAGINA DEL CARRELLO
     cartBtn.onclick = () => {
         if (loginControl == "true") location.assign("cart.html");
@@ -169,10 +170,18 @@ const cart = () => {
             modal.style.display = "flex";
         }
     }
+    // SETTO LA LINGUA ALL'ATTERRAGGIO
+    if (cartTotal) cartTotal.textContent = lang === "it_IT" ? `Prezzo totale : ${cartStorage.reduce((total, value) => total + (value.price * value.qnty), 0)}€`
+        : `Total Price : ${cartStorage.reduce((total, value) => total + (value.price * value.qnty), 0)}€`
 
     // INCREMENTO NUMERO ARTICOLI
     if (loginControl === "true") {
         cartQuant.textContent = cartQuantStorage
+    }
+
+    // PROCEDERE AL PAGAMENTO DEL CARRELLO
+    if (checkoutBtn) checkoutBtn.onclick = () => {
+        location.assign("checkout.html")
     }
 }
 export default cart

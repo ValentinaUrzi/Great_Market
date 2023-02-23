@@ -5,10 +5,15 @@
     "user": "Spedisci a",
     "geolocal": "Roma 00100",
     "modal_title": "Accedi",
-    "username": "Nome utente",
+    "username": "Nome utente:",
     "sub_btn": "Invia",
     "terms": "Termini e Condizioni",
     "privacy": "Politica sulla Privacy",
     "ads": "Pubblicità basate sugli interessi",
-    "empty_cart_mess" : "Non ci sono prodotti nel carrello"
+    "empty_cart_mess": "Non ci sono prodotti nel carrello",
+    "total": "Prezzo totale: ",
+    "checkout_btn": "Procedi all'ordine",
+    "address_text": "Spedisci a:",
+    "payment_method": "Metodo di pagamento:",
+    "pay_btn": "Paga ora"
 }

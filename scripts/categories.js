@@ -7,8 +7,7 @@ const catContainerEl = qS(".categories")
 
 // POPOLAMENTO BARRA CATEGORIE (BYPASSANDO LA CAT 1)
 
-const exportCat = () => {
-
+const categories = () => {
 
     const catGen = async () => {
         const res = await fetch(`https://dummyjson.com/products/categories`)
@@ -16,6 +15,7 @@ const exportCat = () => {
         data.unshift("all")
         {
             data.forEach(data => {
+                // SMARTPHONES HA ID 1
                 if (!(data.includes("-") || data.includes("smartphones"))) {
                     const catTabEl = cE("button");
                     catTabEl.className = "category"
@@ -75,7 +75,7 @@ const exportCat = () => {
 
                             loader.style.display = 'none';
 
-                            priceBrandContainer.append(brand, price);
+                            if (priceBrandContainer) priceBrandContainer.append(brand, price);
                             cartMessageContainer.append(cartMessageIcon, cartMessage);
                             cardOverlay.appendChild(cartMessageContainer);
                             cardEl.append(cardOverlay, title, cat, priceBrandContainer, img,);
@@ -83,8 +83,7 @@ const exportCat = () => {
                         })
 
                     }
-
-                    catContainerEl.appendChild(catTabEl);
+                    if (catContainerEl) catContainerEl.appendChild(catTabEl);
                 }
             })
         }
@@ -95,4 +94,4 @@ const exportCat = () => {
 }
 
 
-export default exportCat;    
+export default categories;    

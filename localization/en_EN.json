@@ -5,10 +5,15 @@
     "user": "Send to",
     "geolocal": "Rome 00100",
     "modal_title": "Login",
-    "username": "Username",
+    "username": "Username:",
     "sub_btn": "Send",
     "terms": "Terms and Conditions",
     "privacy": "Privacy Policy",
     "ads": "Interest-Based Ads",
-    "empty_cart_mess": "Your cart is empty"
+    "empty_cart_mess": "Your cart is empty",
+    "total": "Total price: ",
+    "checkout_btn": "Proceed to checkout",
+    "address_text": "Send to:",
+    "payment_method": "Payment method:",
+    "pay_btn": "Pay now"
 }

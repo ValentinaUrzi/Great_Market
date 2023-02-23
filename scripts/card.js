@@ -7,6 +7,7 @@ const card = () => {
     const modal = qS("#modal");
     const cartQuant = qS(".quantity");
 
+    const lang = localStorage.getItem("language")
     const loginControl = localStorage.getItem("isLogged");
 
     // GENERATORE DI CARDS GENERICHE
@@ -19,7 +20,7 @@ const card = () => {
 
             const cardEl = cE(`button`)
             cardEl.className = "card";
-            
+
             // AGGIUNGERE ARTICOLO AL CARRELLO 
             cardEl.onclick = () => {
                 let itemCart = {
@@ -72,7 +73,7 @@ const card = () => {
 
             const cartMessage = cE(`p`)
             cartMessage.className = "cart_mess";
-            cartMessage.textContent = "Aggiungi al carrello";
+            cartMessage.textContent = lang === "it_IT" ? "Aggiungi al carrello" : "Add to Cart";
 
             const title = cE(`h2`)
             title.className = "card_title";

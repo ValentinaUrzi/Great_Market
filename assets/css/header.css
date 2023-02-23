@@ -78,10 +78,10 @@ header {
     flex-direction: column;
 }
 
-.username {
+.username,
+.password {
     font-size: 14px;
 }
-
 
 .geolocal {
     font-weight: bold;
