@@ -6,13 +6,15 @@ import cart from "./cart.js";
 import traslator from "./translator.js";
 import checkout from "./checkout.js";
 
-const url = location.href
+const url = location.pathname;
 
 lang()
 cart()
-checkout()
+if (url === '/checkout.html') {
+    checkout()
+}
 traslator()
-if (url.includes('index.html')) {
+if (url === "/") {
     categories()
     card()
 }

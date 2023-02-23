@@ -15,5 +15,7 @@
     "checkout_btn": "Proceed to checkout",
     "address_text": "Send to:",
     "payment_method": "Payment method:",
-    "pay_btn": "Pay now"
+    "pay_btn": "Pay now",
+    "success_message": "Thank you for shopping with us. Your order will be delivered shortly."
+
 }

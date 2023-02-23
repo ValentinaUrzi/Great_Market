@@ -20,7 +20,7 @@ const cart = () => {
     emptyCartMessage.textContent = "Your cart is empty";
 
     // SE NON SONO LOGGATO REDIRECT
-    if (url.includes("cart")) loginControl !== "true" && location.replace("index.html")
+    if (url.includes("cart")) loginControl !== "true" && location.replace("/")
 
     // SE NON CI SOPNO PRODOTTI MOSTRO MESSAGGIO CARRELLO VUOTO
     if (parseInt(cartQuantStorage) === 0) {

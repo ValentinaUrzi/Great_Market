@@ -24,7 +24,7 @@ const modalGen = () => {
         localStorage.removeItem("username");
         localStorage.removeItem('cart_quantity');
         localStorage.removeItem('cart');
-        location.replace("index.html");
+        location.replace("/");
     }
 
     window.onclick = (event) => {

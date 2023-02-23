@@ -32,6 +32,7 @@ const traslator = () => {
         localString("payment_method")
         localString("total_text")
         localString("pay_btn")
+        localString("success_message")
     }
 }
 

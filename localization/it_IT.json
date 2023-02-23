@@ -15,5 +15,6 @@
     "checkout_btn": "Procedi all'ordine",
     "address_text": "Spedisci a:",
     "payment_method": "Metodo di pagamento:",
-    "pay_btn": "Paga ora"
+    "pay_btn": "Paga ora",
+    "success_message": "Grazie per il tuo acquisto. Il tuo prodotto sarà spedito a breve"
 }

@@ -72,7 +72,6 @@ const categories = () => {
                             img.className = "card_img";
                             img.src = products.images[1] ? products.images[1] : products.images[0];
 
-
                             loader.style.display = 'none';
 
                             if (priceBrandContainer) priceBrandContainer.append(brand, price);
