@@ -1,0 +1,42 @@
+Professionista: Urzì Valentina
+Nome progetto: Great Market eCommerce
+
+Descrizione
+Realizzare un ecommerce per Great Market Corporation.
+
+Target
+Utenti consumer.
+
+Linee guida
+Riferimento a Fake Store API: https://fakeapi.platzi.com/
+
+Layout
+
+Il cliente ci ha richiesto come requisito la possibilità di usare lo stesso layout e aspetto
+utilizzato da Amazon.
+Il cliente ci ha richiesto un MVP entro una settimana con le seguenti funzionalità:
+
+● Bisognerà realizzare una sezione in alto con le categorie principali. Utilizzare
+l’endpoint in GET https://api.escuelajs.co/api/v1/categories
+Non mostriamo la categoria con id 1.
+
+● Al click su ogni categoria mostrare i prodotti per quella categoria. Utilizziamo un
+loader prima di caricare i dati.
+
+● Creare un sistema di internazionalizzazione in modo da gestire le seguenti lingue:
+inglese e italiano. Proviamo a crearlo da 0 senza l’ausilio di pacchetti esterni.
+
+● Creare un carrello evitando che al refresh della pagina l’utente perda gli elementi
+selezionati. Il carrello permetterà all’utente di proseguire con l’acquisto, di rimuovere
+prodotti o di aumentare la quantità.
+
+● Solo gli utenti loggati potranno aggiungere elementi al carrello. Nel caso in cui
+l’utente non sia loggato, al click su “Add product to cart”, mostrare una Modal di login.
+Una volta effettuato l’accesso con successo il prodotto verrà aggiunto al carrello
+(quindi non sarà necessario per l’utente cliccare nuovamente sul pulsante di aggiungi
+al carrello).
+
+● Prevedere una pagina per il pagamento (fake). I metodi accettati sono: Apple Pay,
+Google Pay, Carta di Credito, Paypal.
+N.B. Utilizzare https://fakestoreapi.com/docs in caso di problematiche con
+https://fakeapi.platzi.com

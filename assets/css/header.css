@@ -83,11 +83,6 @@ header {
     font-weight: bold;
 }
 
-.username,
-.password {
-    font-size: 14px;
-}
-
 .search_bar {
     width: 65%;
     margin-right: 40px;

@@ -9,6 +9,9 @@ const modalGen = () => {
     const rightHeader = qS(".right_header");
     const username = localStorage.getItem("username");
     const loggedStatus = localStorage.getItem("isLogged");
+    const usernameInput = qS("#username");
+    const passwordInput = qS("#password");
+
 
     const logoutBtn = cE("button");
     logoutBtn.className = "logout_btn";
@@ -44,9 +47,25 @@ const modalGen = () => {
             event.preventDefault();
             error.textContent = "";
 
-            if (event.target.username.value == "" || event.target.password.value == "") {
+
+            if (!event.target.username.value) {
+                usernameInput.classList.add("outlined");
                 error.textContent = "Username o password mancanti";
-                return;
+            }
+
+            if (!event.target.password.value) {
+                passwordInput.classList.add("outlined");
+                error.textContent = "Username o password mancanti";
+            }
+
+
+
+            if (event.target.password.value) {
+                passwordInput.classList.remove("outlined");
+            }
+
+            if (!event.target.username.value || !event.target.password.value) {
+                return
             }
 
             setTimeout(() => {
@@ -56,6 +75,18 @@ const modalGen = () => {
                 if (modal.openedBy === "cart") location.assign("cart.html")
                 else { location.reload() }
             }, 800)
+
+        }
+
+        usernameInput.oninput = () => {
+            usernameInput.classList.remove("outlined");
+            error.textContent = "";
+            console.log("ciao");
+        }
+
+        passwordInput.oninput = () => {
+            passwordInput.classList.remove("outlined");
+            error.textContent = "";
         }
     }
 }

@@ -14,7 +14,7 @@ if (url === '/checkout.html') {
     checkout()
 }
 traslator()
-if (url === "/") {
+if (url === "/" || url === "/index.html") {
     categories()
     cards()
 }

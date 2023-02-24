@@ -12,11 +12,18 @@
     background-color: rgba(0, 0, 0, 0.4);
 }
 
+.modal_logo {
+    width: 15%;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
 .modal_content {
     text-align: center;
     position: relative;
     color: white;
-    border-radius: 5px;
+    border-radius: 2px;
     background-color: #232F3E;
     margin: 10% auto;
     padding: 20px 20px 50px;
@@ -28,7 +35,7 @@
     display: inline-block;
     padding: 10px 20px;
     border: none;
-    border-radius: 30px;
+    border-radius: 2px;
     background-color: #E28804;
     color: #fff;
     font-size: 16px;
@@ -39,11 +46,24 @@
     transition: background-color 0.3s ease;
 }
 
+.username,
+.password {
+    font-size: 14px;
+}
+
+
 .error_msg {
     margin-top: 0;
     color: red;
 }
 
 .sub_btn:hover {
-    background-color: #af6a03;
+    background-color: #a06205;
+}
+
+.outlined {
+    outline: auto;
+    outline-color: red;
+    outline-style:solid;
+    outline-width: 1px;
 }
