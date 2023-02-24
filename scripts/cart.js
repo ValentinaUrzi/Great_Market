@@ -26,7 +26,7 @@ const cart = () => {
     // SE NON SONO LOGGATO REDIRECT
     if (url.includes("cart")) loginControl !== "true" && location.replace("/")
 
-    // SE NON CI SOPNO PRODOTTI MOSTRO MESSAGGIO CARRELLO VUOTO
+    // SE NON CI SONO PRODOTTI MOSTRO MESSAGGIO CARRELLO VUOTO
     if (parseInt(cartQuantStorage) === 0) {
         if (checkoutBtn) checkoutBtn.style.display = "none";
         const defaultCartContainer = cE("div")
@@ -37,6 +37,7 @@ const cart = () => {
     } else {
 
         // INSERIMENTO PRODOTTI NEL CARRELLO
+
         cartStorage.forEach(products => {
             const defaultCartContainer = cE("div")
             defaultCartContainer.className = "not_empty_cart";

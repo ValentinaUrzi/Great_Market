@@ -27,7 +27,7 @@ const cards = () => {
                     id: products.id,
                     title: products.title,
                     brand: products.brand,
-                    image: products.images[0],
+                    image: products.images[1] ? products.images[1] : products.images[0],
                     price: products.price,
                     category: products.category,
                     qnty: 1
