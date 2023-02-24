@@ -1,4 +1,4 @@
-import { cE, qS } from "./utils.js";
+import { catTranslator, cE, qS } from "./utils.js";
 
 const cart = () => {
 
@@ -64,7 +64,7 @@ const cart = () => {
 
             const category = cE(`p`)
             category.className = "cart_category";
-            category.textContent = products.category;
+            category.textContent = lang === "it_IT" ? catTranslator(products.category) : products.category;
 
             const priceQuantContainer = cE(`div`)
             priceQuantContainer.className = "cart_price_brand";

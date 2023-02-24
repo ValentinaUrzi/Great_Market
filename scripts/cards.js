@@ -1,4 +1,4 @@
-import { cE, qS } from "./utils.js";
+import { catTranslator, cE, qS } from "./utils.js";
 
 const cards = () => {
 
@@ -35,7 +35,7 @@ const cards = () => {
 
                 const cartQuantStorage = localStorage.getItem("cart_quantity") || "0";
                 let cart = JSON.parse(localStorage.getItem("cart")) || []
-                if (parseInt(cartQuantStorage) >= 9){
+                if (parseInt(cartQuantStorage) >= 9) {
                     cartQuant.style.left = "28px"
                 }
 
@@ -87,7 +87,7 @@ const cards = () => {
 
             const cat = cE(`h3`)
             cat.className = "card_cat";
-            cat.textContent = products.category;
+            cat.textContent = lang === "it_IT" ? catTranslator(products.category) : products.category;
 
             const priceBrandContainer = cE(`div`)
             priceBrandContainer.className = "card_price_brand";
