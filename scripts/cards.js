@@ -35,6 +35,9 @@ const cards = () => {
 
                 const cartQuantStorage = localStorage.getItem("cart_quantity") || "0";
                 let cart = JSON.parse(localStorage.getItem("cart")) || []
+                if (parseInt(cartQuantStorage) >= 9){
+                    cartQuant.style.left = "28px"
+                }
 
                 localStorage.setItem("cart_quantity", parseInt(cartQuantStorage) + 1)
 

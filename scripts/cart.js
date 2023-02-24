@@ -19,6 +19,10 @@ const cart = () => {
     emptyCartMessage.className = "empty_cart_mess";
     emptyCartMessage.textContent = "Your cart is empty";
 
+    if (parseInt(cartQuantStorage) >= 9) {
+        cartQuant.style.left = "28px"
+    }
+
     // SE NON SONO LOGGATO REDIRECT
     if (url.includes("cart")) loginControl !== "true" && location.replace("/")
 
@@ -72,6 +76,10 @@ const cart = () => {
             price.className = "cart_price";
             price.textContent = "€ " + products.price;
 
+            const qnty = cE(`p`)
+            qnty.className = "card_qnty";
+            qnty.textContent = products.qnty;
+
             const qntyContainer = cE(`p`)
             qntyContainer.className = "cart_qnty_container";
 
@@ -82,6 +90,10 @@ const cart = () => {
                 let cartStorage = JSON.parse(localStorage.getItem("cart")) || [];
                 const cartQuantStorage = localStorage.getItem("cart_quantity") || "0";
                 const parsedQuant = parseInt(cartQuantStorage)
+                if (parsedQuant <= 10) {
+                    cartQuant.style.left = "31px"
+                }
+
 
                 //DECREMENTO QUANTITA' PRODOTTO LOCAL STORAGE (CART)
                 let cartControl = cartStorage.some(element => element.id === products.id && element.qnty > 1);
@@ -117,9 +129,6 @@ const cart = () => {
                 }
             }
 
-            const qnty = cE(`p`)
-            qnty.className = "card_qnty";
-            qnty.textContent = products.qnty;
 
             // INCREMENTO QUANTITA' ID DUPLICATI
             const plusBtn = cE(`button`)
@@ -129,6 +138,10 @@ const cart = () => {
                 let cartStorage = JSON.parse(localStorage.getItem("cart")) || [];
                 const cartQuantStorage = localStorage.getItem("cart_quantity") || "0";
                 const parsedQuant = parseInt(cartQuantStorage)
+                if (parsedQuant >= 9) {
+                    cartQuant.style.left = "28px"
+                }
+
 
                 //INCREMENTO CARRELLO LOCAL STORAGE
                 let cartControl = cartStorage.some(element => element.id === products.id && element.qnty > 0);
